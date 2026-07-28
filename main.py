@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 
-from routers import customers, vehicles, packages, appointments, maintenance, auth
+from routers import customers, vehicles, packages, appointments, maintenance, auth, booking
 
 
 @asynccontextmanager
@@ -56,6 +56,7 @@ api.add_middleware(
 )
 
 api.include_router(auth.router)
+api.include_router(booking.router)
 api.include_router(customers.router)
 api.include_router(vehicles.router)
 api.include_router(packages.router)
